@@ -35,6 +35,7 @@ function findSubarraysWithSumK(arr, K) {
     sumMap[cumulativeSum].push(index);
   }
 
+  console.log(result);
   // Print all subarrays
   if (result.length > 0) {
     console.log(`Subarrays with sum ${K} are:`);
@@ -48,4 +49,4 @@ function findSubarraysWithSumK(arr, K) {
 
 // Example usage
 let arr = [3, 4, -7, 1, 3, 3, 1, -4, -2, -2];
-findSubarraysWithSumK(arr, -1);
+findSubarraysWithSumK(arr, 0);

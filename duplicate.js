@@ -19,4 +19,4 @@ function findDuplicates(arr) {
   return result;
 }
 
-console.log(findDuplicates([4, 3, 2, 7, 8, 2, 3, 1]));
+console.log(findDuplicates([3, 2, 3, 1, 2]));

@@ -1,25 +1,22 @@
-//dynamic programming - bottom up
-function longestSubstringWithoutRepeating(s) {
-    let totalLength = s.length;
-    let visited = new Map();
-    let maxLength = 0;
-    let leftPointer = 0;
-  
-    for (let rightPointer = 0; rightPointer < totalLength; rightPointer++) {
-      if (visited.has(s[rightPointer])) {
-        leftPointer = visited.get(s[rightPointer]) + 1;
+//longest substring without repeating character
+var lengthOfLongestSubstring = function(s) {
+  let maxLength = 0;
+  let left = 0;
+  let lastSeen = {};
+
+  for (let right = 0; right < s.length; right++) {
+      let c = s.charAt(right);
+      if (c in lastSeen && lastSeen[c] >= left) {
+          left = lastSeen[c] + 1;
       }
-  
-      visited.set(s[rightPointer], rightPointer);
-  
-      let len = rightPointer - leftPointer + 1;
-      maxLength = Math.max(maxLength, len);
-    }
-  
-    return maxLength;
+      maxLength = Math.max(maxLength, right - left + 1);
+      lastSeen[c] = right;
   }
-  
+
+  return maxLength;     
+};
+
   // Example usage:
-  const s = "bbbbbb";
-  console.log(longestSubstringWithoutRepeating(s)); // Output: 3 ("abc")
+  const s = "abcbad";
+  console.log(lengthOfLongestSubstring(s)); // Output: 3 ("abc")
   

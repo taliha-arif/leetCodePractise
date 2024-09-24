@@ -38,4 +38,4 @@ function maxSwap(num) {
   return digitArray;
 }
 
-console.log(maxSwap(9876));
+console.log(maxSwap(9786));

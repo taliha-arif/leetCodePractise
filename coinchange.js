@@ -15,12 +15,14 @@ const findcoinMin = (coins, amount) => {
   // Iterate through all amounts from 1 to the given amount
   for (let i = 1; i <= amount; i++) {
     for (let c of coins) {
+      //coins less than current value : c <= i (min coins required to make value)
+      //1 + dpArray[i - c] : 1 (min 1 coin required) + coin which already found to make that value
       if (c <= i && dpArray[i - c] !== Number.MAX_VALUE) {
-        dpArray[i] = Math.min(dpArray[i], 1 + dpArray[i - c]);
+        dpArray[i] = Math.min(dpArray[i], 1 + dpArray[i - c]); // to fill dp array
       }
     }
   }
-
+  console.log('dparray', dpArray);
   // If the amount is not possible to be made, return -1
   return dpArray[amount] === Number.MAX_VALUE ? -1 : dpArray[amount];
 };
